@@ -29,22 +29,24 @@ function onFormSubmit(e) {
 
   var formResponse = e.response;
   var itemResponses = formResponse.getItemResponses();
-  var emailBody = "New form response:\n\n";
+  var emailBody = '<div>';
 
   itemResponses.forEach(function(itemResponse) {
     var title = itemResponse.getItem().getTitle();
     var response = itemResponse.getResponse();
-    emailBody += title + "\n" + response + "\n\n";
+    emailBody += '<h3>' + title + '</h3>' + "\n" + '<p>' + response + '</p>' + "\n\n";
   });
 
-  
+  emailBody += '</div>'; 
+
   sendEmail(emailBody);
 }
 
 function sendEmail(emailBody) {
   MailApp.sendEmail(
     "gregross.dev@gmail.com", 
-    "📝 Meeting List", 
-    emailBody
+    "📝 Meeting List",
+    "",
+    {htmlBody:emailBody} 
   );
 }
