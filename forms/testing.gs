@@ -6,6 +6,19 @@
 var form = FormApp.getActiveForm();
 
 function Test() {
+  // item types 
+  // https://developers.google.com/apps-script/reference/forms/item-type
+
+  // https://drive.google.com/drive/u/0/folders/
+  const url = 'https://drive.google.com/drive/u/0/folders/'; 
+
+  // FILE_UPLOAD
   const data = form.getItems(); 
-  data.map(item => Logger.log(item.getType()));     
+  data.map(item => {
+    let itemType = item.getType();  
+    Logger.log(itemType);
+    if(itemType == 'FILE_UPLOAD'){
+      Logger.log("it works!")
+    }
+  });    
 }
