@@ -20,5 +20,16 @@ function Test() {
     if(itemType == 'FILE_UPLOAD'){
       Logger.log("it works!")
     }
-  });    
+  });   
+
+  // send email
+  const to = "gregross.dev@gmail.com"; 
+  const subject = form.getTitle();
+  let htmlBody;
+  
+  MailApp.sendEmail({
+    to, 
+    subject,  
+    htmlBody
+  });
 }
