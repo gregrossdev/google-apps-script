@@ -15,6 +15,7 @@ function Test() {
   // FILE_UPLOAD
   const data = form.getItems(); 
   data.map(item => {
+    // let itemType = itemResponse.getItem().getType(); 
     let itemType = item.getType();  
     Logger.log(itemType);
     if(itemType == 'FILE_UPLOAD'){
